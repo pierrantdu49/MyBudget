@@ -1,0 +1,9 @@
+// Fichier contenant tous les paramètres de configuration de l'application.
+
+{
+	"appname" 		: "MyBudget",
+	"version" 		: "0.1.0",
+	"db_name" 		: "budget",
+	"db_user" 		: "root",
+	"db_password" 	: "root"
+}
