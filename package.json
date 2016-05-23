@@ -1,0 +1,8 @@
+// Fichier permettant de lister les informations générales de l'application.
+// Toutes les dépendances y figurent. Il suffit de faire un npm install pour toutes les télécharges.
+
+{
+  "name": "MyBudget",
+  "version": "1.0.0",
+  "author": "El_parrain49",
+}
