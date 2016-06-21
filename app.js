@@ -25,6 +25,12 @@ app.get('/test', function (req, res) {
   res.send('Application MyBudget');
 });
 
+app.get('/findAllDepenses', function (req, res) {
+	var depenses = budget.findAllDepenses();
+	console.log(depenses);
+  	res.json(depenses);
+});
+
 app.get('/infos', function (req, res) {
   res.send('Application MyBudget v'+configuration.version);
 });

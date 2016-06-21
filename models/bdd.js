@@ -10,8 +10,8 @@ var configuration = JSON.parse(
 
 //Initialisation de la connexion à la base de données
 var connection = mysql.createConnection({
-	host : configuration.db_host,
-	user : configuration.db_user,
+	host     : configuration.db_host,
+	user     : configuration.db_user,
 	password : configuration.db_password,
 	database : configuration.db_name
 });
@@ -27,3 +27,20 @@ if(!err) {
     console.log("Check database information");    
 }
 });
+
+
+var query = "";
+
+module.exports = {
+    findAllDepensesBDD : function(){
+        query = "SELECT * FROM depense";
+        connection.query(query,function(err,rows){
+            if(err) throw err;
+            console.log('rows :'+rows);
+        });
+        console.log("rows bdd : "+rows);
+        return rows;
+    }
+}
+
+

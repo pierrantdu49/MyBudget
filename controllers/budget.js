@@ -1,11 +1,13 @@
 var bdd = require("../models/bdd.js");
 
-/*exports.test = function () {
-	console.log("Function test called.");
-};*/
-
 module.exports = {
 	helloWorld : function() {
 		console.log("Hello world !");
+	},
+	findAllDepenses : function(){
+		console.log("budget.js : appel findAllDepenses");
+		var rows = bdd.findAllDepensesBDD();
+		console.log("rows budget : "+rows);
+		return rows;
 	}
 }
