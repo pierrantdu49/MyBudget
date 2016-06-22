@@ -4,10 +4,15 @@ module.exports = {
 	helloWorld : function() {
 		console.log("Hello world !");
 	},
-	findAllDepenses : function(){
+	findAllDepenses : function(getResults){
 		console.log("budget.js : appel findAllDepenses");
-		var rows = bdd.findAllDepensesBDD();
-		console.log("rows budget : "+rows);
-		return rows;
+		bdd.findAllDepensesBDD(function(err,results){
+			if (err) {
+				throw err;
+			} else {
+				getResults(results);
+			}
+				
+		});
 	}
 }

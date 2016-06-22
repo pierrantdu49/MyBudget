@@ -32,14 +32,11 @@ if(!err) {
 var query = "";
 
 module.exports = {
-    findAllDepensesBDD : function(){
+    findAllDepensesBDD : function(callback){
         query = "SELECT * FROM depense";
-        connection.query(query,function(err,rows){
-            if(err) throw err;
-            console.log('rows :'+rows);
+        connection.query(query,function(err,results){
+            callback(err,results)
         });
-        console.log("rows bdd : "+rows);
-        return rows;
     }
 }
 

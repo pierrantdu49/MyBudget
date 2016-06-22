@@ -25,10 +25,11 @@ app.get('/test', function (req, res) {
   res.send('Application MyBudget');
 });
 
+// Fonction permettant de récupérer la liste de toutes les dépenses confondues.
 app.get('/findAllDepenses', function (req, res) {
-	var depenses = budget.findAllDepenses();
-	console.log(depenses);
-  	res.json(depenses);
+	var depenses = budget.findAllDepenses(function(results){
+		res.json(results);
+	});
 });
 
 app.get('/infos', function (req, res) {
