@@ -33,11 +33,34 @@ var query = "";
 
 module.exports = {
     findAllDepensesBDD : function(callback){
-        query = "SELECT * FROM depense";
+        query = "SELECT *"
+                +" FROM depense;";
         connection.query(query,function(err,results){
-            callback(err,results)
+            console.log("results : "+results);
+            callback(err,results);
+        });
+    },
+    findAllDepensesByCategorieBDD : function(categorieDepense, callback){
+        console.log("categorieDepense bdd.js : "+categorieDepense);
+        query = "SELECT *"
+                +" FROM depense as d, categoriedepense as cd"
+                +" WHERE d.CategorieDepense_idCategorie = cd.idCategorie AND cd.intitule = '"+categorieDepense+"';";
+        console.log("query : "+query);
+        connection.query(query,function(err,results){
+            console.log("results : "+results);
+            callback(err,results);
+        });
+    },
+    findAllCategorieDepensesBDD : function(callback){
+        query = "SELECT *"
+                +" FROM categoriedepense;";
+        connection.query(query,function(err,results){
+            console.log("results : "+results);
+            callback(err,results);
         });
     }
+
+
 }
 
 

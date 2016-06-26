@@ -32,6 +32,22 @@ app.get('/findAllDepenses', function (req, res) {
 	});
 });
 
+// Fonction permettant de récupérer la liste de toutes les dépenses par catégorie.
+app.get('/findAllDepensesByCategorie/:categorieDepense', function (req, res) {
+	console.log("categorie : "+req.params.categorieDepense);
+	var categorieDepense = req.params.categorieDepense;
+	var depenses = budget.findAllDepensesByCategorie(categorieDepense, function(categorieDepense,results){
+		res.json(results);
+	});
+});
+
+// Fonction permettant de récupérer la liste de toutes les catégories de dépenses confondues.
+app.get('/findAllCategorieDepenses', function (req, res) {
+	var depenses = budget.findAllCategorieDepenses(function(results){
+		res.json(results);
+	});
+});
+
 app.get('/infos', function (req, res) {
   res.send('Application MyBudget v'+configuration.version);
 });
